@@ -2,6 +2,9 @@
 export default defineNuxtConfig({
   compatibilityDate: '2024-04-03',
   devtools: { enabled: true },
-  modules: ['@nuxtjs/tailwindcss'],
+  modules: [ '@nuxt/ui','@nuxtjs/tailwindcss',],
   css: ['~/assets/css/main.css'],
+  colorMode: {
+    preference: 'light', // 设置默认为浅色主题
+  },
 })
