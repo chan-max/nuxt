@@ -25,7 +25,6 @@ function getCategories() {
     })
 }
 
-
 /**
   * @api 获取尺寸列表
   * @param 无
@@ -178,7 +177,7 @@ export function useApiFetch<T>(
         headers: defaultHeaders,
         params: options?.params,
         body: options?.body,
-        onResponse: options.onResponse,
+        onResponse: options?.onResponse,
         onRequestError({ request, options, error }) {
             // 处理请求错误
             console.error('请求错误：', error);
