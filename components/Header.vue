@@ -3,7 +3,11 @@
     <div class="container mx-auto flex items-center justify-between py-4 px-6">
       <!-- Logo -->
       <div class="flex items-center shrink-0">
-        <img src="/logo.svg" alt="Logo" class="h-8 w-auto pr-2" />
+        <img
+          src="/logo.svg"
+          alt="Logo"
+          class="h-8 w-auto pr-2 max-w-[120px] md:max-w-none"
+        />
       </div>
 
       <!-- 搜索框 -->
