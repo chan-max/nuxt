@@ -3,23 +3,23 @@ import { defineGameConfig } from "./common/config"
 
 export default defineGameConfig({
     tailwindColors: {
-        'custom': {
-            '50': '#fff9eb',
-            '100': '#feedc7',
-            '200': '#fdd98a',
-            '300': '#fcc04d',
-            '400': '#fbae35',
-            '500': '#f5840b',
-            '600': '#d96006',
-            '700': '#b44009',
-            '800': '#92320e',
-            '900': '#78290f',
-            '950': '#451303',
-        },
+        "custom": {
+            "50": "#e8fbf2",     // 浅青绿（背景高亮）
+            "100": "#c6f8e3",    // 柔和青绿
+            "200": "#8ff4c9",    // 明亮绿青
+            "300": "#54dfae",    // 青绿色（按钮悬停）
+            "400": "#2ac495",    // 主绿色（强调按钮）
+            "500": "#0ea371",    // 深青绿（核心品牌色）
+            "600": "#087e58",    // 深绿（次要色调）
+            "700": "#055943",    // 暗绿（标题高亮）
+            "800": "#032d22",    // 深暗绿（背景）
+            "900": "#010f0c",    // 极暗绿（深色模式背景）
+            "950": "#000704",    // 极暗黑绿（对比背景）
+        }
     },
 
 
-    brandName: "ShadowForge",
+    brandName: "InfernoQuest",
     tagline: 'The Ultimate Destination for Gamers!',
     apiKey: 'f298164b-2e79-4823-ac51-53ffb604813d',
     apiURL: 'https://api.ohioon.com',

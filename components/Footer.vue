@@ -1,10 +1,30 @@
 <template>
-  <footer class="bg-gray-900 text-white py-6">
-    <div class="container mx-auto text-center">
-      <p class="text-sm">&copy; 2024 MyWebsite. All rights reserved.</p>
-      <div class="mt-2 space-x-4">
-        <a href="/privacy" class="text-custom-400 hover:underline">Privacy Policy</a>
-        <a href="/terms" class="text-custom-400 hover:underline">Terms of Service</a>
+  <footer class="bg-custom-900 text-white py-8 shadow-lg">
+    <div class="container mx-auto text-center space-y-6">
+      <!-- 标语 -->
+      <p class="text-sm text-custom-400 italic">"Embark on the Journey of Flames"</p>
+
+      <!-- 链接 -->
+      <div class="flex justify-center space-x-8">
+        <a
+          href="/privacy"
+          class="text-custom-400 hover:text-flame-400 font-medium transition duration-200"
+        >
+          Privacy Policy
+        </a>
+        <a
+          href="/terms"
+          class="text-custom-400 hover:text-flame-400 font-medium transition duration-200"
+        >
+          Terms of Service
+        </a>
+      </div>
+
+      <!-- 版权信息 -->
+      <div class="pt-4 border-t border-custom-800">
+        <p class="text-sm text-custom-400">
+          &copy; 2024 InfernoQuest. All rights reserved.
+        </p>
       </div>
     </div>
   </footer>
