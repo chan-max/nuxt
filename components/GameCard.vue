@@ -1,6 +1,6 @@
 <template>
   <div
-    class="bg-white shadow-md rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-300"
+    class="bg-white shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 transform hover:scale-105"
   >
     <!-- Game Thumbnail -->
     <div class="relative">
@@ -8,31 +8,36 @@
         <img
           :src="game.thumb"
           :alt="game.title"
-          class="w-full h-36 object-cover cursor-pointer"
+          class="w-full h-40 object-cover cursor-pointer"
         />
       </a>
-      <a
-        @click.stop="playnow"
+      <button
+        @click.stop="playnow(game)"
         target="_blank"
-        class="absolute bottom-2 right-2 bg-custom-500 text-white px-2 py-1 rounded-full text-xs font-semibold hover:bg-custom-600 transition-colors cursor-pointer"
+        class="absolute bottom-3 right-3 bg-custom-500 text-white px-3 py-1 rounded-full text-sm font-semibold hover:bg-custom-600 transition-colors"
       >
         Play Now
-      </a>
+      </button>
     </div>
     <!-- Game Details -->
-    <div class="p-3 flex flex-col space-y-2">
-      <h2 class="text-sm font-semibold">{{ game.title }}</h2>
+    <div class="p-4 flex flex-col space-y-3">
+      <!-- Title -->
+      <h2 class="text-base font-bold text-gray-800 truncate">
+        {{ game.title }}
+      </h2>
+      <!-- Description -->
       <p
-        class="text-xs text-gray-600 overflow-hidden overflow-ellipsis"
+        class="text-sm text-gray-600 overflow-hidden overflow-ellipsis"
         style="display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical"
       >
         {{ game.description }}
       </p>
-      <div class="flex flex-wrap gap-1">
+      <!-- Tags -->
+      <div class="flex flex-wrap gap-2">
         <template v-for="tag in formatTags(game.tags)" :key="tag">
           <span
             @click="tagClick(tag)"
-            class="bg-gray-200 text-gray-800 px-2 py-1 rounded text-xs cursor-pointer hover:bg-gray-300 transition"
+            class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-xs cursor-pointer hover:bg-gray-200 hover:text-gray-800 transition"
             :title="getTagTitle(tag)"
           >
             {{ tag }}
@@ -54,18 +59,19 @@ defineProps({
   },
 });
 
-const router = useRouter();
 const emits = defineEmits(["playnow"]);
 
+// Emit "play now" event
 function playnow(game) {
   emits("playnow", game);
 }
 
-// 格式化标签，最多显示8个标签
+// Format tags: limit to 8 maximum
 function formatTags(tags) {
   return tags.split(",").slice(0, 8);
 }
 
+// Handle tag click
 function tagClick(tag) {
   searchType.value = SearchTypes.Tags;
   searchContent.value = tag;
@@ -73,8 +79,12 @@ function tagClick(tag) {
   searchClickEventBus.emit(tag);
 }
 
-// 动态生成标签的title，假设我们希望显示 "Browse games with [tag]"
+// Generate title for tags
 function getTagTitle(tag) {
   return `Browse games with the "${tag}" tag.`;
 }
 </script>
+
+<style>
+/* Optional: Add any specific global or scoped styles here */
+</style>
