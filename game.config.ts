@@ -3,23 +3,23 @@ import { defineGameConfig } from "./common/config"
 
 export default defineGameConfig({
     tailwindColors: {
-        'custom': {
-            '50': '#fff9eb',
-            '100': '#feedc7',
-            '200': '#fdd98a',
-            '300': '#fcc04d',
-            '400': '#fbae35',
-            '500': '#f5840b',
-            '600': '#d96006',
-            '700': '#b44009',
-            '800': '#92320e',
-            '900': '#78290f',
-            '950': '#451303',
-        },
+        "custom": {
+            "50": "#fff5fc",      // 浅粉紫（背景高亮）
+            "100": "#ffebf8",     // 粉紫
+            "200": "#ffd6f1",     // 浅紫粉
+            "300": "#ffabe3",     // 亮紫粉（按钮背景、悬停效果）
+            "400": "#ff80d4",     // 明亮紫粉（品牌主色）
+            "500": "#ff4dc4",     // 核心紫红色（主要按钮、品牌色调）
+            "600": "#e636b1",     // 深紫红（次要按钮）
+            "700": "#c22694",     // 深红紫（文字或重要标签）
+            "800": "#911975",     // 暗紫色（卡片背景）
+            "900": "#5f0d4f",     // 深紫色（深色模式主背景）
+            "950": "#330629"      // 极深紫（对比色背景）
+        }
     },
 
 
-    brandName: "ShadowForge",
+    brandName: "NovaRaid",
     tagline: 'The Ultimate Destination for Gamers!',
     apiKey: 'f298164b-2e79-4823-ac51-53ffb604813d',
     apiURL: 'https://api.ohioon.com',
@@ -29,7 +29,7 @@ export default defineGameConfig({
     gtmID: 'GTM-NTDHGBN9',
 
 
-    favicon: '/favicon.png',
+    favicon: '/favicon.svg',
 
     metaDescription: `Forge your path to greatness with LunaForge, where lunar magic and gaming artistry collide. Create epic worlds, solve mystical puzzles, and embark on adventures that shine under the moon’s glow. LunaForge offers a unique gaming experience that blends creativity and strategy, allowing you to craft your destiny in a realm filled with lunar wonders. Step into the moonlight and let your imagination take flight with LunaForge!`,
 
