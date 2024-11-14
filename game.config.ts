@@ -20,16 +20,13 @@ export default defineGameConfig({
 
 
     brandName: "InfernoQuest",
-    tagline: 'The Ultimate Destination for Gamers!',
+    tagline: 'Forge Your Legacy in the Flames of Adventure!',
     apiKey: 'f298164b-2e79-4823-ac51-53ffb604813d',
     apiURL: 'https://api.ohioon.com',
 
+    gtmID: 'GTM-W2NX8FWW',
 
-
-    gtmID: 'GTM-NTDHGBN9',
-
-
-    favicon: '/favicon.png',
+    favicon: '/favicon.svg',
 
     metaDescription: `Forge your path to greatness with LunaForge, where lunar magic and gaming artistry collide. Create epic worlds, solve mystical puzzles, and embark on adventures that shine under the moon’s glow. LunaForge offers a unique gaming experience that blends creativity and strategy, allowing you to craft your destiny in a realm filled with lunar wonders. Step into the moonlight and let your imagination take flight with LunaForge!`,
 

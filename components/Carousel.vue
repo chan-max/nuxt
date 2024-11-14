@@ -22,51 +22,53 @@
           class="w-full h-[300px] sm:h-[500px] object-cover cursor-pointer"
         />
         <!-- Text Overlay -->
-
-
-          <div
-            class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent text-white flex flex-col justify-end p-6 sm:p-12 space-y-4 cursor-pointer"
-          >
-            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between">
-              <div class="flex-1">
-                <h2 class="text-lg sm:text-3xl font-bold">{{ slide.title }}</h2>
-                <p class="text-sm sm:text-lg line-clamp-2">{{ slide.description }}</p>
-                <p class="text-xs sm:text-sm italic opacity-75">
-                  {{ slide.instructions }}
-                </p>
-                <div class="flex space-x-2 mt-4">
-                  <span
-                    v-for="(tag, idx) in slide.tags.split(',')"
-                    :key="idx"
-                    class="bg-gray-800 bg-opacity-75 px-3 py-1 rounded text-xs sm:text-sm text-nowrap"
-                  >
-                    {{ tag }}
-                  </span>
-                </div>
-              </div>
-              <!-- Play Now Button -->
-              <div class="mt-4 sm:mt-0 sm:ml-6">
-                <button
-                  @click.stop="$emit('playnow', slide)"
-                  class="bg-custom-500 text-white px-4 py-2 rounded-lg text-sm sm:text-base font-bold hover:bg-custom-400 text-nowrap"
+        <div
+          class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent text-white flex flex-col justify-end p-6 sm:p-12 space-y-4 cursor-pointer"
+        >
+          <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between">
+            <div class="flex-1">
+              <h2 class="text-lg sm:text-3xl font-extrabold text-flame-500">
+                {{ slide.title }}
+              </h2>
+              <p class="text-sm sm:text-lg line-clamp-2 text-gray-300">
+                {{ slide.description }}
+              </p>
+              <p class="text-xs sm:text-sm italic text-gray-400">
+                {{ slide.instructions }}
+              </p>
+              <div class="flex space-x-2 mt-4">
+                <span
+                  v-for="(tag, idx) in slide.tags.split(',')"
+                  :key="idx"
+                  class="bg-custom-800 bg-opacity-80 text-custom-300 px-3 py-1 rounded text-xs sm:text-sm text-nowrap"
                 >
-                  Play Now
-                </button>
+                  {{ tag }}
+                </span>
               </div>
             </div>
+            <!-- Play Now Button -->
+            <div class="mt-4 sm:mt-0 sm:ml-6">
+              <button
+                @click.stop="$emit('playnow', slide)"
+                class="bg-flame-500 text-white px-4 py-2 rounded-lg text-sm sm:text-base font-bold hover:bg-flame-400 text-nowrap shadow-md"
+              >
+                Play Now
+              </button>
+            </div>
           </div>
+        </div>
       </div>
     </div>
 
     <!-- Navigation -->
     <button
-      class="absolute top-1/2 left-4 -translate-y-1/2 bg-gray-800 bg-opacity-50 text-white p-2 rounded-full hover:bg-gray-700"
+      class="absolute top-1/2 left-4 -translate-y-1/2 bg-custom-900 bg-opacity-70 text-white p-3 rounded-full hover:bg-flame-500 transition"
       @click="prevSlide"
     >
       ◀
     </button>
     <button
-      class="absolute top-1/2 right-4 -translate-y-1/2 bg-gray-800 bg-opacity-50 text-white p-2 rounded-full hover:bg-gray-700"
+      class="absolute top-1/2 right-4 -translate-y-1/2 bg-custom-900 bg-opacity-70 text-white p-3 rounded-full hover:bg-flame-500 transition"
       @click="nextSlide"
     >
       ▶
@@ -78,10 +80,13 @@
         v-for="(slide, index) in slides"
         :key="index"
         :class="[
-          'w-3 h-3 rounded-full',
-          index === currentSlide ? 'bg-gray-800' : 'bg-gray-400',
+          'w-4 h-4 rounded-full border-2',
+          index === currentSlide
+            ? 'bg-flame-500 border-flame-400'
+            : 'bg-custom-900 border-gray-400',
         ]"
         @click="goToSlide(index)"
+        class="transition-all duration-300"
       ></button>
     </div>
   </div>
