@@ -20,7 +20,7 @@ export default defineGameConfig({
 
 
     brandName: "NovaRaid",
-    tagline: 'The Ultimate Destination for Gamers!',
+    tagline: 'Forge Your Legacy Among the Stars.',
     apiKey: 'f298164b-2e79-4823-ac51-53ffb604813d',
     apiURL: 'https://api.ohioon.com',
 
