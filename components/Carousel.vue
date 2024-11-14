@@ -1,12 +1,12 @@
 <template>
   <div
-    class="w-full max-w-7xl mx-auto overflow-hidden relative"
+    class="relative w-full max-w-7xl mx-auto overflow-hidden"
     @mouseenter="stopAutoplay"
     @mouseleave="startAutoplay"
   >
     <!-- Slider Container -->
     <div
-      class="flex transition-transform duration-500 ease-in-out"
+      class="flex transition-transform duration-700 ease-in-out"
       :style="{ transform: `translateX(-${currentSlide * 100}%)` }"
     >
       <!-- Slide Items -->
@@ -19,67 +19,61 @@
         <img
           :src="slide.thumb"
           :alt="slide.alt"
-          class="w-full h-[300px] sm:h-[500px] object-cover cursor-pointer"
+          class="w-full h-[300px] sm:h-[500px] object-cover"
         />
         <!-- Text Overlay -->
-
-
-          <div
-            class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent text-white flex flex-col justify-end p-6 sm:p-12 space-y-4 cursor-pointer"
-          >
-            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between">
-              <div class="flex-1">
-                <h2 class="text-lg sm:text-3xl font-bold">{{ slide.title }}</h2>
-                <p class="text-sm sm:text-lg line-clamp-2">{{ slide.description }}</p>
-                <p class="text-xs sm:text-sm italic opacity-75">
-                  {{ slide.instructions }}
-                </p>
-                <div class="flex space-x-2 mt-4">
-                  <span
-                    v-for="(tag, idx) in slide.tags.split(',')"
-                    :key="idx"
-                    class="bg-gray-800 bg-opacity-75 px-3 py-1 rounded text-xs sm:text-sm text-nowrap"
-                  >
-                    {{ tag }}
-                  </span>
-                </div>
-              </div>
-              <!-- Play Now Button -->
-              <div class="mt-4 sm:mt-0 sm:ml-6">
-                <button
-                  @click.stop="$emit('playnow', slide)"
-                  class="bg-custom-500 text-white px-4 py-2 rounded-lg text-sm sm:text-base font-bold hover:bg-custom-400 text-nowrap"
-                >
-                  Play Now
-                </button>
-              </div>
-            </div>
+        <div
+          class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent text-white flex flex-col justify-end p-8 sm:p-14 space-y-6"
+        >
+          <h2 class="text-3xl sm:text-5xl font-extrabold tracking-wide drop-shadow-lg">
+            {{ slide.title }}
+          </h2>
+          <p class="text-lg sm:text-2xl font-medium opacity-90 drop-shadow-md">
+            {{ slide.description }}
+          </p>
+          <div class="flex space-x-4">
+            <span
+              v-for="(tag, idx) in slide.tags.split(',')"
+              :key="idx"
+              class="bg-500 text-white px-4 py-2 rounded-full text-sm sm:text-base font-bold shadow-md border border-white/20"
+            >
+              {{ tag }}
+            </span>
           </div>
+          <button
+            @click.stop="$emit('playnow', slide)"
+            class="mt-6 bg-500 text-white px-6 py-3 rounded-lg text-lg sm:text-xl font-bold hover:bg-400 hover:scale-110 transition-transform transform shadow-xl"
+          >
+            Play Now
+          </button>
+        </div>
       </div>
     </div>
 
     <!-- Navigation -->
     <button
-      class="absolute top-1/2 left-4 -translate-y-1/2 bg-gray-800 bg-opacity-50 text-white p-2 rounded-full hover:bg-gray-700"
+      class="absolute top-1/2 left-4 -translate-y-1/2 bg-black bg-opacity-70 text-white p-4 rounded-full hover:bg-opacity-90 hover:scale-110 transition-transform transform shadow-lg"
       @click="prevSlide"
     >
       ◀
     </button>
     <button
-      class="absolute top-1/2 right-4 -translate-y-1/2 bg-gray-800 bg-opacity-50 text-white p-2 rounded-full hover:bg-gray-700"
+      class="absolute top-1/2 right-4 -translate-y-1/2 bg-black bg-opacity-70 text-white p-4 rounded-full hover:bg-opacity-90 hover:scale-110 transition-transform transform shadow-lg"
       @click="nextSlide"
     >
       ▶
     </button>
 
     <!-- Pagination -->
-    <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2">
+    <div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex space-x-4">
       <button
         v-for="(slide, index) in slides"
         :key="index"
         :class="[
-          'w-3 h-3 rounded-full',
-          index === currentSlide ? 'bg-gray-800' : 'bg-gray-400',
+          'w-4 h-4 rounded-full border-2 transition-transform',
+          index === currentSlide
+            ? 'bg-500 border-500 scale-125'
+            : 'bg-gray-400 border-gray-300',
         ]"
         @click="goToSlide(index)"
       ></button>
