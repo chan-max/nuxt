@@ -26,7 +26,7 @@ export default defineGameConfig({
 
 
 
-    gtmID: 'GTM-NTDHGBN9',
+    gtmID: 'GTM-5RM2WRBK',
 
 
     favicon: '/favicon.svg',
