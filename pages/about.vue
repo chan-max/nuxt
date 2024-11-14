@@ -1,62 +1,59 @@
 <template>
-  <div class="min-h-screen bg-gray-100 py-12">
-    <main class="container mx-auto px-6 py-10 bg-white shadow-lg rounded-lg">
-      <h1 class="text-4xl font-extrabold text-gray-800 text-center mb-10">About Us</h1>
+  <div class="min-h-screen bg-custom-900 py-12 text-white">
+    <main class="container mx-auto px-6 py-10 bg-custom-800 shadow-lg rounded-lg">
+      <h1 class="text-4xl font-extrabold text-flame-500 text-center mb-10">About Us</h1>
 
       <section class="mb-8">
-        <p class="text-gray-700 text-lg leading-relaxed">
-          At <span class="font-semibold">ShadowForge</span>, we invite you to immerse
-          yourself in a world where gaming, creativity, and competition converge. Designed
-          for gamers and creators alike, ShadowForge is a platform that transforms play
-          into purpose, offering an ecosystem where your skills, ambitions, and passions
-          can thrive.
+        <p class="text-gray-300 text-lg leading-relaxed">
+          Welcome to <span class="font-semibold text-flame-400">HexBlaze</span>, a realm
+          where innovation, energy, and passion collide. Designed for explorers, creators,
+          and gamers alike, HexBlaze empowers you to ignite your potential and shape the
+          future. Together, we transform creativity into a blazing force that drives
+          progress and connection.
         </p>
       </section>
 
       <section class="mb-8">
-        <h2 class="text-2xl font-semibold text-gray-800 mb-4">
-          A Transformative Experience
-        </h2>
-        <p class="text-gray-700 text-lg leading-relaxed">
-          Gaming at ShadowForge is more than just a pastime—it’s a journey of discovery,
-          growth, and achievement. Whether you're sharpening your strategies, creating
-          unforgettable content, or building lasting connections, every step forward is a
-          testament to your dedication. We celebrate each milestone together, fostering a
-          sense of accomplishment and community.
+        <h2 class="text-2xl font-semibold text-flame-400 mb-4">A Dynamic Journey</h2>
+        <p class="text-gray-300 text-lg leading-relaxed">
+          At HexBlaze, gaming is more than a pastime—it’s an electrifying journey of
+          growth, exploration, and transformation. Whether you're strategizing for your
+          next victory, crafting unique experiences, or building meaningful connections,
+          every step you take shapes your legacy. Together, we celebrate these moments,
+          turning milestones into memories.
         </p>
       </section>
 
       <section class="mb-8">
-        <h2 class="text-2xl font-semibold text-gray-800 mb-4">Community at the Core</h2>
-        <p class="text-gray-700 text-lg leading-relaxed">
-          <span class="font-semibold">Community is at the heart of ShadowForge.</span> Our
-          platform unites individuals who share a passion for innovation and competition,
-          creating a vibrant space where collaboration and camaraderie flourish. Every
-          contribution matters here—your ideas, efforts, and victories enrich our shared
-          adventure.
+        <h2 class="text-2xl font-semibold text-flame-400 mb-4">Empowered by Community</h2>
+        <p class="text-gray-300 text-lg leading-relaxed">
+          <span class="font-semibold text-flame-500"
+            >Community fuels HexBlaze’s fire.</span
+          >
+          Here, individuals with a shared passion for creativity and ambition come
+          together to inspire and innovate. Through collaboration, camaraderie, and shared
+          triumphs, our community drives the energy that powers HexBlaze.
         </p>
       </section>
 
       <section class="mb-8">
-        <h2 class="text-2xl font-semibold text-gray-800 mb-4">
-          Where Ambition Meets Creativity
-        </h2>
-        <p class="text-gray-700 text-lg leading-relaxed">
-          ShadowForge is where creativity meets ambition, and dreams come alive. With
-          tools to enhance your skills and a supportive community by your side, this is
-          your stage to shine. Step into the arena, forge your legacy, and leave your mark
-          on the ever-evolving landscape of gaming and creation.
+        <h2 class="text-2xl font-semibold text-flame-400 mb-4">Where Ideas Ignite</h2>
+        <p class="text-gray-300 text-lg leading-relaxed">
+          HexBlaze is the forge where ideas ignite and bold visions take shape. With tools
+          that amplify your creativity and a supportive network by your side, this is your
+          opportunity to rise, shine, and leave a lasting mark on the ever-evolving world
+          of gaming and innovation.
         </p>
       </section>
 
       <section>
-        <h2 class="text-2xl font-semibold text-gray-800 mb-4">Contact Us</h2>
-        <p class="text-gray-700 text-lg leading-relaxed">
-          Have questions, feedback, or ready to embark on your ShadowForge journey?
-          Connect with us at
-          <a href="mailto:contact@shadowforge.com" class="text-custom-600 hover:underline"
-            >contact@shadowforge.com</a
-          >. We’re here to support and celebrate your success!
+        <h2 class="text-2xl font-semibold text-flame-400 mb-4">Contact Us</h2>
+        <p class="text-gray-300 text-lg leading-relaxed">
+          Have questions, feedback, or ready to start your HexBlaze adventure? Connect
+          with us at
+          <a href="mailto:contact@hexblaze.com" class="text-flame-500 hover:underline"
+            >contact@hexblaze.com</a
+          >. We’re here to empower and celebrate your success!
         </p>
       </section>
     </main>

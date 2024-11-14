@@ -21,13 +21,12 @@ export default defineGameConfig({
 
 
     brandName: "HexBlaze",
-    tagline: 'The Ultimate Destination for Gamers!',
+    tagline: 'Ignite the Power, Shape the Unknown.',
     apiKey: 'f298164b-2e79-4823-ac51-53ffb604813d',
     apiURL: 'https://api.ohioon.com',
 
 
-
-    gtmID: 'GTM-NTDHGBN9',
+    gtmID: 'GTM-PRWCQRCM',
 
 
     favicon: '/favicon.svg',
