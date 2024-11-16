@@ -31,7 +31,7 @@
           <p class="text-lg sm:text-2xl font-medium opacity-90 drop-shadow-md">
             {{ slide.description }}
           </p>
-          <div class="flex space-x-4">
+          <div class="flex flex-wrap gap-2 mt-4">
             <span
               v-for="(tag, idx) in slide.tags.split(',')"
               :key="idx"
