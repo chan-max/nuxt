@@ -20,6 +20,7 @@
         :games="list"
         @playnow="cardPlaynow"
         @thumbClick="gameListThumbClick"
+        :viewMore="false"
       ></GameListCard>
     </div>
 
