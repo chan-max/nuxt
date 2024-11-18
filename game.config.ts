@@ -18,16 +18,12 @@ export default defineGameConfig({
         },
     },
 
-
     brandName: "ShadowForge",
     tagline: 'The Ultimate Destination for Gamers!',
     apiKey: 'f298164b-2e79-4823-ac51-53ffb604813d',
     apiURL: 'https://api.ohioon.com',
 
-
-
     gtmID: 'GTM-NTDHGBN9',
-
 
     favicon: '/favicon.png',
 
