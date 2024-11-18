@@ -91,22 +91,9 @@
   </div>
 </template>
 
-<script>
-export default {
-  head() {
-    return {
-      title: "Privacy Policy - ShadowForge",
-      meta: [
-        {
-          hid: "description",
-          name: "description",
-          content:
-            "Learn about the Privacy Policy of ShadowForge and how we handle your data.",
-        },
-      ],
-    };
-  },
-};
+<script setup>
+import { useGamePrivacySeo } from "~/common/seo";
+useGamePrivacySeo();
 </script>
 
 <style scoped>
