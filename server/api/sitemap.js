@@ -24,24 +24,24 @@ export default defineSitemapEventHandler(async () => {
         });
 
         // 获取分类数据
-        const categoriesResponse = await api.get('/api/v1/categories', {
-            params: {
-                page: 1,
-                pageSize: 10000,
-            }
-        });
+        // const categoriesResponse = await api.get('/api/v1/categories', {
+        //     params: {
+        //         page: 1,
+        //         pageSize: 10000,
+        //     }
+        // });
 
         const games = gamesResponse.data.games; // 解析响应数据
-        const categories = categoriesResponse.data; // 解析响应数据
+        // const categories = categoriesResponse.data; // 解析响应数据
 
         // 返回 sitemap 路由
         return [
             ...games.map(p => asSitemapUrl({
                 loc: '/detail/' + p.id,
             })),
-            ...categories.map(p => asSitemapUrl({
-                loc: '/categories/' + p.toLowerCase(),
-            }))
+            // ...categories.map(p => asSitemapUrl({
+            //     loc: '/categories/' + p.toLowerCase(),
+            // }))
         ];
     } catch (error) {
         throw new Error(`Failed to fetch data: ${error.message}`);
