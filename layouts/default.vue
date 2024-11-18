@@ -50,6 +50,8 @@
       />
     </ClientOnly>
   </div>
+  <GameModal></GameModal>
+  <GlobalLoading></GlobalLoading>
 </template>
 
 <script setup>
