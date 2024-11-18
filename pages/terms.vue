@@ -13,7 +13,8 @@
       <section class="mb-8">
         <h2 class="text-2xl font-semibold text-gray-800 mb-4">Terminology</h2>
         <p class="text-gray-700">
-          The following terminology applies to these Terms and Conditions, Privacy Policy, and Disclaimer Notice, and all Agreements:
+          The following terminology applies to these Terms and Conditions, Privacy Policy,
+          and Disclaimer Notice, and all Agreements:
         </p>
         <ul class="list-disc list-inside text-gray-700 mt-4 space-y-2">
           <li>"Client," "You," and "Your" refer to you, the user of this website.</li>
@@ -44,16 +45,22 @@
       </section>
 
       <section class="mb-8">
-        <h2 class="text-2xl font-semibold text-gray-800 mb-4">Hyperlinking to Our Content</h2>
+        <h2 class="text-2xl font-semibold text-gray-800 mb-4">
+          Hyperlinking to Our Content
+        </h2>
         <p class="text-gray-700">
-          Certain organizations may link to our website without prior approval, including government agencies, search engines, and news organizations. However, links must not falsely imply sponsorship or endorsement.
+          Certain organizations may link to our website without prior approval, including
+          government agencies, search engines, and news organizations. However, links must
+          not falsely imply sponsorship or endorsement.
         </p>
       </section>
 
       <section class="mb-8">
         <h2 class="text-2xl font-semibold text-gray-800 mb-4">Content Liability</h2>
         <p class="text-gray-700">
-          We are not responsible for content on your website. You agree to protect and defend us against any claims arising from your website. Links must not promote unlawful activities or violate third-party rights.
+          We are not responsible for content on your website. You agree to protect and
+          defend us against any claims arising from your website. Links must not promote
+          unlawful activities or violate third-party rights.
         </p>
       </section>
 
@@ -67,31 +74,18 @@
       <section class="mb-8">
         <h2 class="text-2xl font-semibold text-gray-800 mb-4">Contact</h2>
         <p class="text-gray-700">
-          If you have any questions about these terms, feel free to <a href="#" class="text-blue-600 hover:underline">contact us</a>.
+          If you have any questions about these terms, feel free to
+          <a href="#" class="text-blue-600 hover:underline">contact us</a>.
         </p>
       </section>
     </main>
   </div>
 </template>
 
-<script>
-export default {
-  head() {
-    return {
-      title: "Terms of Service - TitanRift",
-      meta: [
-        {
-          hid: "description",
-          name: "description",
-          content:
-            "Learn about the Terms of Service of TitanRift and your responsibilities when using our website.",
-        },
-      ],
-    };
-  },
-};
+<script setup>
+import { useGameTermsSeo } from "~/common/seo";
+
+useGameTermsSeo();
 </script>
 
-<style scoped>
-/* Optional: Add any additional custom styles if needed */
-</style>
+<style scoped></style>

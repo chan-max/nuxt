@@ -69,6 +69,7 @@ import API from "@/common/api";
 import SocialShareList from "@/components/SocialShareList.vue";
 import { useGameModal } from "~/common/useGameModal";
 import { useLoading } from "~/common/useLoading";
+import { useGameTitleSeo } from "~/common/seo";
 
 const route = useRoute();
 const id = route.params.id;
@@ -79,6 +80,13 @@ const { data, pending } = API.getGamesById({ id: id as string });
 const { openGameModal } = useGameModal();
 
 const { startLoading, stopLoading } = useLoading();
+
+watchEffect(() => {
+  if (data.value?.title) {
+    useGameTitleSeo(data.value?.title);
+  }
+});
+
 
 watchEffect(() => {
   if (pending.value) {
