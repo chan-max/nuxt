@@ -6,7 +6,8 @@
       <h1 class="text-2xl sm:text-4xl font-bold flex items-end space-x-4">
         <span>{{ title }}</span>
         <a
-          @click="viewMore"
+          v-if="viewMore"
+          @click="clickViewMore(title)"
           class="text-custom-600 text-base sm:text-lg underline hover:text-custom-800 cursor-pointer transition-colors"
         >
           View More
@@ -30,6 +31,10 @@
 
 <script setup>
 import GameCard from "@/components/GameCard.vue";
+import { useRouter } from "vue-router";
+import { SearchTypes, searchContent, searchType } from "~/common/search";
+
+const router = useRouter();
 
 defineProps({
   title: {
@@ -40,9 +45,15 @@ defineProps({
     type: Array,
     required: true,
   },
+  viewMore: {
+    type: Boolean,
+    default: true,
+  },
 });
 
-const viewMore = () => {
-  alert("查看更多内容");
+const clickViewMore = (title) => {
+  searchContent.value = title;
+  searchType.value = SearchTypes.Category;
+  router.push({ path: "/search" });
 };
 </script>

@@ -20,6 +20,7 @@
         :games="list"
         @playnow="cardPlaynow"
         @thumbClick="gameListThumbClick"
+        :viewMore="false"
       ></GameListCard>
     </div>
 
@@ -70,6 +71,8 @@ import { useGameModal } from "~/common/useGameModal";
 import { searchClickEventBus, searchTypeEventBus } from "@/common/eventBus";
 
 const { openGameModal } = useGameModal();
+
+
 
 // 点击 "Play Now" 的处理函数
 function cardPlaynow(item) {

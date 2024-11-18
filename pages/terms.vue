@@ -111,20 +111,10 @@
   </div>
 </template>
 
-<script>
-export default {
-  head() {
-    return {
-      title: "Terms of Service - NovaRaid",
-      meta: [
-        {
-          hid: "description",
-          name: "description",
-          content:
-            "Explore the Terms of Service for NovaRaid and learn about your rights and responsibilities within our innovative platform.",
-        },
-      ],
-    };
-  },
-};
+<script setup>
+import { useGameTermsSeo } from "~/common/seo";
+
+useGameTermsSeo();
 </script>
+
+<style scoped></style>

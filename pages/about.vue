@@ -66,4 +66,6 @@
 
 <script setup>
 // No specific logic needed for this static page
+import { useGameAboutSeo } from "@/common/seo";
+useGameAboutSeo();
 </script>

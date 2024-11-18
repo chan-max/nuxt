@@ -82,20 +82,7 @@
   </div>
 </template>
 
-<script>
-export default {
-  head() {
-    return {
-      title: "Privacy Policy - NovaRaid",
-      meta: [
-        {
-          hid: "description",
-          name: "description",
-          content:
-            "Understand how NovaRaid protects your data and ensures your privacy as you explore our intergalactic features.",
-        },
-      ],
-    };
-  },
-};
+<script setup>
+import { useGamePrivacySeo } from "~/common/seo";
+useGamePrivacySeo();
 </script>
