@@ -1,4 +1,5 @@
 export default defineNuxtPlugin(nuxtApp => {
+
     if (process.client) {
         if (!window.xAdConfig || useRuntimeConfig().public.appEnv === 'development') return;
 

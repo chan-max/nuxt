@@ -53,6 +53,11 @@ export default defineNuxtConfig({
   site: {
     url: process.env.BASE_URL || 'http://localhost:3000',
   },
+  nitro: {
+    prerender: {
+      routes: ['/sitemap.xml'], // 指定需要生成的路由
+    },
+  },
   sitemap: {
     cacheMaxAgeSeconds: 60 * 60 * 24,
     xsl: false,
@@ -60,6 +65,7 @@ export default defineNuxtConfig({
     autoLastmod: true,
     sources: [
       '/api/__sitemap__/urls',
+      '/api/sitemap'
     ],
   },
   colorMode: {

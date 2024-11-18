@@ -90,24 +90,10 @@
   </div>
 </template>
 
-<script>
-export default {
-  head() {
-    return {
-      title: "Terms of Service - HexBlaze",
-      meta: [
-        {
-          hid: "description",
-          name: "description",
-          content:
-            "Learn about the Terms of Service of HexBlaze and your responsibilities when using our website.",
-        },
-      ],
-    };
-  },
-};
+<script setup>
+import { useGameTermsSeo } from "~/common/seo";
+
+useGameTermsSeo();
 </script>
 
-<style scoped>
-/* Add custom styles if needed */
-</style>
+<style scoped></style>

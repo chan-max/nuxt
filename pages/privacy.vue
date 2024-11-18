@@ -94,22 +94,9 @@
   </div>
 </template>
 
-<script>
-export default {
-  head() {
-    return {
-      title: "Privacy Policy - HexBlaze",
-      meta: [
-        {
-          hid: "description",
-          name: "description",
-          content:
-            "Learn about the Privacy Policy of HexBlaze and how we handle your data.",
-        },
-      ],
-    };
-  },
-};
+<script setup>
+import { useGamePrivacySeo } from "~/common/seo";
+useGamePrivacySeo();
 </script>
 
 <style scoped>
