@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen bg-gray-100 py-12">
+  <div class="min-h-screen  py-12">
     <main class="container mx-auto px-6 py-10 bg-white shadow-lg rounded-lg">
       <h1 class="text-4xl font-extrabold text-gray-800 text-center mb-10">
         About NovaRaid

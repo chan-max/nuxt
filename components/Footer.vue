@@ -6,18 +6,18 @@
 
       <!-- Links -->
       <div class="flex justify-center space-x-6">
-        <a
-          href="/privacy"
+        <NuxtLink
+          to="/privacy"
           class="text-custom-400 hover:text-custom-500 font-medium transition duration-200"
         >
           Privacy Policy
-        </a>
-        <a
-          href="/terms"
+        </NuxtLink>
+        <NuxtLink
+          to="/terms"
           class="text-custom-400 hover:text-custom-500 font-medium transition duration-200"
         >
           Terms of Service
-        </a>
+        </NuxtLink>
       </div>
 
       <!-- Copyright -->
