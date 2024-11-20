@@ -6,18 +6,18 @@
 
       <!-- 链接 -->
       <div class="flex justify-center space-x-8">
-        <a
-          href="/privacy"
+        <NuxtLink
+          to="/privacy"
           class="text-custom-400 hover:text-flame-400 font-medium transition duration-200"
         >
           Privacy Policy
-        </a>
-        <a
-          href="/terms"
+        </NuxtLink>
+        <NuxtLink
+          to="/terms"
           class="text-custom-400 hover:text-flame-400 font-medium transition duration-200"
         >
           Terms of Service
-        </a>
+        </NuxtLink>
       </div>
 
       <!-- 版权信息 -->
