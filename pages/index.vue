@@ -8,7 +8,9 @@
           @click="categoryClick(category as string)"
           class="text-xs md:text-base font-medium text-white underline hover:text-custom-900 focus:text-custom-dark focus:underline transition-all duration-300 cursor-pointer"
         >
-          {{ category }}
+          <NuxtLink to="/search">
+            {{ category }}
+          </NuxtLink>
         </span>
       </div>
     </div>
@@ -43,7 +45,6 @@ let router = useRouter();
 function categoryClick(category) {
   searchType.value = SearchTypes.Category;
   searchContent.value = category as string;
-  router.push("/search");
 }
 
 let { startLoading, stopLoading } = useLoading();
@@ -74,8 +75,7 @@ function playnow(item: { url: string }) {
  * @method 跳转到游戏详情页面
  */
 function goDetailPage(info: { id: string }) {
-  // router.push({path:`detail/${info.id}`,force:true});
-  navigateTo(`/detail/${info.id}`);
+  // navigateTo(`/detail/${info.id}`);
 }
 
 /**
@@ -96,7 +96,7 @@ function contentClick(item: any) {
  * @method 游戏列表中的缩略图点击，用于跳转详情
  */
 function gameListThumbClick(item: any) {
-  goDetailPage(item);
+  // goDetailPage(item);
 }
 
 /**
