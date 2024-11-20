@@ -17,7 +17,7 @@
         <p class="text-md text-gray-400 mb-4">No worries, let's get you back on track:</p>
         <NuxtLink
           href="/"
-          class="px-6 py-3 bg-primary-500 text-white font-semibold rounded-md shadow transition duration-500 ease-in-out hover:bg-primary-600 transform hover:-translate-y-1 hover:scale-105"
+          class="px-6 py-3 bg-custom-500 text-white font-semibold rounded-md shadow transition duration-500 ease-in-out hover:bg-custom-600 transform hover:-translate-y-1 hover:scale-105"
         >
           Take me home</NuxtLink
         >
