@@ -72,17 +72,13 @@ import { searchClickEventBus, searchTypeEventBus } from "@/common/eventBus";
 
 const { openGameModal } = useGameModal();
 
-
-
 // 点击 "Play Now" 的处理函数
 function cardPlaynow(item) {
   openGameModal(item);
 }
 
 // 点击缩略图的处理函数
-function gameListThumbClick() {
-  console.log("Thumbnail clicked");
-}
+function gameListThumbClick() {}
 
 // 初始化搜索内容
 const defaultSearchContent = ref(""); // 默认搜索内容

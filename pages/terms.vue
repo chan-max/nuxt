@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen bg-gray-100 py-10">
+  <div class="min-h-screen py-10">
     <main class="container mx-auto px-6 py-10 bg-white shadow-lg rounded-lg">
       <h1 class="text-4xl font-bold text-gray-800 mb-6 text-center">Terms of Service</h1>
 

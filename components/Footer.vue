@@ -5,18 +5,18 @@
         &copy; 2024 MyWebsite. All rights reserved.
       </p>
       <div class="mt-4 space-x-6">
-        <a
-          href="/privacy"
+        <NuxtLink
+          to="/privacy"
           class="text-custom-400 hover:text-custom-500 transition duration-200"
         >
           Privacy Policy
-        </a>
-        <a
-          href="/terms"
+        </NuxtLink>
+        <NuxtLink
+          to="/terms"
           class="text-custom-400 hover:text-custom-500 transition duration-200"
         >
           Terms of Service
-        </a>
+        </NuxtLink>
       </div>
     </div>
   </footer>

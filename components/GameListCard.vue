@@ -10,7 +10,7 @@
           @click="clickViewMore(title)"
           class="text-custom-600 text-base sm:text-lg underline hover:text-custom-800 cursor-pointer transition-colors"
         >
-          View More
+          <NuxtLink to="/search"> View More </NuxtLink>
         </a>
       </h1>
     </div>
@@ -54,6 +54,5 @@ defineProps({
 const clickViewMore = (title) => {
   searchContent.value = title;
   searchType.value = SearchTypes.Category;
-  router.push({ path: "/search" });
 };
 </script>

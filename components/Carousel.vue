@@ -22,30 +22,39 @@
           class="w-full h-[300px] sm:h-[500px] object-cover"
         />
         <!-- Text Overlay -->
+
         <div
-          class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent text-white flex flex-col justify-end p-8 sm:p-14 space-y-6"
+          class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent text-white flex flex-col justify-end p-6 sm:p-12 space-y-4"
         >
-          <h2 class="text-3xl sm:text-5xl font-extrabold tracking-wide drop-shadow-lg">
-            {{ slide.title }}
-          </h2>
-          <p class="text-lg sm:text-2xl font-medium opacity-90 drop-shadow-md">
-            {{ slide.description }}
-          </p>
-          <div class="flex flex-wrap gap-2 mt-4">
-            <span
-              v-for="(tag, idx) in slide.tags.split(',')"
-              :key="idx"
-              class="bg-500 text-white px-4 py-2 rounded-full text-sm sm:text-base font-bold shadow-md border border-white/20"
-            >
-              {{ tag }}
-            </span>
+          <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between">
+            <NuxtLink :to="'/detail/' + slide.id">
+              <div class="flex-1 cursor-pointer">
+                <h2 class="text-lg sm:text-3xl font-bold">{{ slide.title }}</h2>
+                <p class="text-sm sm:text-lg line-clamp-2">{{ slide.description }}</p>
+                <p class="text-xs sm:text-sm italic opacity-75">
+                  {{ slide.instructions }}
+                </p>
+                <div class="flex space-x-2 mt-4">
+                  <span
+                    v-for="(tag, idx) in slide.tags.split(',')"
+                    :key="idx"
+                    class="bg-gray-800 bg-opacity-75 px-3 py-1 rounded text-xs sm:text-sm text-nowrap"
+                  >
+                    {{ tag }}
+                  </span>
+                </div>
+              </div>
+            </NuxtLink>
+            <!-- Play Now Button -->
+            <div class="mt-4 sm:mt-0 sm:ml-6">
+              <button
+                @click.stop="$emit('playnow', slide)"
+                class="bg-custom-500 text-white px-4 py-2 rounded-lg text-sm sm:text-base font-bold hover:bg-custom-400 text-nowrap"
+              >
+                Play Now
+              </button>
+            </div>
           </div>
-          <button
-            @click.stop="$emit('playnow', slide)"
-            class="mt-6 bg-500 text-white px-6 py-3 rounded-lg text-lg sm:text-xl font-bold hover:bg-400 hover:scale-110 transition-transform transform shadow-xl"
-          >
-            Play Now
-          </button>
         </div>
       </div>
     </div>

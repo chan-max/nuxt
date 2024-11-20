@@ -4,13 +4,13 @@
   >
     <!-- Game Thumbnail -->
     <div class="relative">
-      <a :href="`/detail/${game.id}`">
+      <NuxtLink :to="`/detail/${game.id}`">
         <img
           :src="game.thumb"
           :alt="game.title"
           class="w-full h-44 object-cover cursor-pointer"
         />
-      </a>
+      </NuxtLink>
       <button
         @click.stop="playnow(game)"
         class="absolute bottom-4 right-4 bg-500 text-white px-4 py-2 rounded-lg text-sm font-bold shadow-md hover:bg-400 hover:shadow-lg transition-transform transform hover:scale-110"
@@ -39,7 +39,9 @@
             class="bg-100 text-800 px-3 py-1 rounded-full text-xs font-medium cursor-pointer border border-200 hover:bg-200 hover:border-400 hover:text-900 transition"
             :title="getTagTitle(tag)"
           >
-            {{ tag }}
+            <NuxtLink to="/search">
+              {{ tag }}
+            </NuxtLink>
           </span>
         </template>
       </div>
@@ -74,7 +76,6 @@ function formatTags(tags) {
 function tagClick(tag) {
   searchType.value = SearchTypes.Tags;
   searchContent.value = tag;
-  router.push({ path: "/search" });
   searchClickEventBus.emit(tag);
 }
 
