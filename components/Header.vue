@@ -42,14 +42,17 @@
             @click="searchClick"
             class="px-4 py-2 text-white text-opacity-50 hover:text-opacity-100 hover:bg-custom-600 focus:outline-none transition"
           >
-            Search
+            <NuxtLink to="/search"> Search </NuxtLink>
           </button>
         </div>
       </div>
 
       <!-- 导航菜单 -->
       <nav class="hidden md:flex space-x-6">
-        <a href="/" class="flex flex-col items-center justify-center space-y-1 group">
+        <NuxtLink
+          to="/"
+          class="flex flex-col items-center justify-center space-y-1 group"
+        >
           <UIcon
             name="i-heroicons-home"
             class="w-6 h-6 text-gray-400 group-hover:text-custom-600 transition-transform transform group-hover:scale-110"
@@ -57,9 +60,9 @@
           <span class="text-sm text-gray-400 group-hover:text-custom-600 transition">
             Home
           </span>
-        </a>
-        <a
-          href="/games"
+        </NuxtLink>
+        <NuxtLink
+          to="/games"
           class="flex flex-col items-center justify-center space-y-1 group"
         >
           <UIcon
@@ -69,9 +72,9 @@
           <span class="text-sm text-gray-400 group-hover:text-custom-600 transition">
             Games
           </span>
-        </a>
-        <a
-          href="/about"
+        </NuxtLink>
+        <NuxtLink
+          to="/about"
           class="flex flex-col items-center justify-center space-y-1 group"
         >
           <UIcon
@@ -81,7 +84,7 @@
           <span class="text-sm text-gray-400 group-hover:text-custom-600 transition">
             About
           </span>
-        </a>
+        </NuxtLink>
       </nav>
 
       <!-- 移动菜单按钮 -->
@@ -106,9 +109,9 @@
     <!-- 移动菜单 -->
     <div v-if="isMenuOpen" class="md:hidden bg-gray-700">
       <nav class="flex flex-col space-y-2 p-4">
-        <a href="/" class="text-white hover:text-custom-400">Home</a>
-        <a href="/games" class="text-white hover:text-custom-400">Games</a>
-        <a href="/about" class="text-white hover:text-custom-400">About</a>
+        <NuxtLink to="/" class="text-white hover:text-custom-400">Home</NuxtLink>
+        <NuxtLink to="/games" class="text-white hover:text-custom-400">Games</NuxtLink>
+        <NuxtLink to="/about" class="text-white hover:text-custom-400">About</NuxtLink>
       </nav>
 
       <!-- 移动端搜索框 -->
@@ -139,7 +142,7 @@
             @click="searchClick"
             class="px-4 py-2 text-white bg-custom-500 hover:bg-custom-600 focus:outline-none transition"
           >
-            Search
+            <NuxtLink to="/search"> Search</NuxtLink>
           </button>
         </div>
       </div>
@@ -164,7 +167,6 @@ function toggleMenu() {
 
 // 处理搜索逻辑
 function searchClick() {
-  router.push({ path: "/search" });
   searchClickEventBus.emit(searchContent.value);
 }
 

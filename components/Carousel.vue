@@ -23,12 +23,12 @@
         />
         <!-- Text Overlay -->
 
-
-          <div
-            class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent text-white flex flex-col justify-end p-6 sm:p-12 space-y-4 cursor-pointer"
-          >
-            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between">
-              <div class="flex-1">
+        <div
+          class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent text-white flex flex-col justify-end p-6 sm:p-12 space-y-4"
+        >
+          <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between">
+            <NuxtLink :to="'/detail/' + slide.id">
+              <div class="flex-1 cursor-pointer">
                 <h2 class="text-lg sm:text-3xl font-bold">{{ slide.title }}</h2>
                 <p class="text-sm sm:text-lg line-clamp-2">{{ slide.description }}</p>
                 <p class="text-xs sm:text-sm italic opacity-75">
@@ -44,17 +44,18 @@
                   </span>
                 </div>
               </div>
-              <!-- Play Now Button -->
-              <div class="mt-4 sm:mt-0 sm:ml-6">
-                <button
-                  @click.stop="$emit('playnow', slide)"
-                  class="bg-custom-500 text-white px-4 py-2 rounded-lg text-sm sm:text-base font-bold hover:bg-custom-400 text-nowrap"
-                >
-                  Play Now
-                </button>
-              </div>
+            </NuxtLink>
+            <!-- Play Now Button -->
+            <div class="mt-4 sm:mt-0 sm:ml-6">
+              <button
+                @click.stop="$emit('playnow', slide)"
+                class="bg-custom-500 text-white px-4 py-2 rounded-lg text-sm sm:text-base font-bold hover:bg-custom-400 text-nowrap"
+              >
+                Play Now
+              </button>
             </div>
           </div>
+        </div>
       </div>
     </div>
 
