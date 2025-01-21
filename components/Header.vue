@@ -1,172 +1,128 @@
 <template>
-  <header class="bg-gray-900 text-white">
-    <div class="container mx-auto flex items-center justify-between py-4 px-6">
-      <!-- Logo -->
-      <div class="flex items-center shrink-0">
+  <header class="bg-white text-gray-900 border-b">
+    <div class="mx-auto flex items-center justify-between py-6 px-8">
+      <!-- Logo 和 菜单部分 -->
+      <div class="flex items-center space-x-8">
+        <!-- 增加了间距 -->
+        <!-- Logo -->
         <img
-          src="/logo.svg"
+          src="/logo.png"
           alt="Logo"
           class="h-8 w-auto pr-2 max-w-[120px] md:max-w-none"
         />
+
+        <!-- 菜单 -->
+        <div class="w-0"></div>
+        <nav class="flex items-center space-x-6 home-nav">
+          <UDropdown
+            :items="[items[0]]"
+            :ui="ui"
+            mode="hover"
+            :popper="{ placement: 'bottom-start' }"
+          >
+            <a
+              href="/"
+              class="text-gray-900 hover:text-gray-600 transition text-sm flex items-center"
+            >
+              Home
+              <i class="i-heroicons-chevron-down-20-solid ml-2"></i>
+            </a>
+          </UDropdown>
+
+          <UDropdown
+            :ui="ui"
+            :items="[items[1]]"
+            mode="hover"
+            :popper="{ placement: 'bottom-start' }"
+          >
+            <a
+              href="/services"
+              class="text-gray-900 hover:text-gray-600 transition text-sm flex items-center"
+            >
+              Services
+              <i class="i-heroicons-chevron-down-20-solid ml-2"></i>
+            </a>
+          </UDropdown>
+
+          <UDropdown
+            :ui="ui"
+            :items="[items[2]]"
+            mode="hover"
+            :popper="{ placement: 'bottom-start' }"
+          >
+            <a
+              href="/about"
+              class="text-gray-900 hover:text-gray-600 transition text-sm flex items-center"
+            >
+              About Us
+              <i class="i-heroicons-chevron-down-20-solid ml-2"></i>
+            </a>
+          </UDropdown>
+        </nav>
       </div>
 
-      <!-- 搜索框 -->
-      <div class="flex-1 flex justify-center">
-        <div
-          class="hidden md:flex items-center bg-gray-800 bg-opacity-70 hover:bg-opacity-100 rounded-lg overflow-hidden border-2 border-custom-500/60 focus-within:border-custom-600/90 transition"
-        >
-          <!-- 分类选择下拉框 -->
-          <select
-            v-model="searchType"
-            @change="searchTypeChange"
-            class="px-4 py-2 text-sm text-white bg-transparent border-none focus:outline-none sm:w-32 md:w-32 w-20 border-r-2 border-custom-400/70"
-          >
-            <option value="title">Title</option>
-            <option value="category">Category</option>
-            <option value="tags">Tags</option>
-          </select>
-
-          <!-- 搜索框输入 -->
-          <input
-            v-model="searchContent"
-            @keyup.enter="searchClick"
-            type="text"
-            placeholder="Search..."
-            class="px-4 py-2 text-sm text-white bg-transparent border-none focus:outline-none sm:w-64 md:w-72 w-48 border-r-2 border-custom-400/70"
-          />
-
-          <!-- 搜索按钮 -->
-          <button
-            @click="searchClick"
-            class="px-4 py-2 text-white text-opacity-50 hover:text-opacity-100 hover:bg-custom-600 focus:outline-none transition"
-          >
-            Search
-          </button>
-        </div>
-      </div>
-
-      <!-- 导航菜单 -->
-      <nav class="hidden md:flex space-x-6">
-        <a href="/" class="flex flex-col items-center justify-center space-y-1 group">
-          <UIcon
-            name="i-heroicons-home"
-            class="w-6 h-6 text-gray-400 group-hover:text-custom-600 transition-transform transform group-hover:scale-110"
-          />
-          <span class="text-sm text-gray-400 group-hover:text-custom-600 transition">
-            Home
-          </span>
-        </a>
-        <a
-          href="/games"
-          class="flex flex-col items-center justify-center space-y-1 group"
-        >
-          <UIcon
-            name="i-heroicons-bars-3-16-solid"
-            class="w-6 h-6 text-gray-400 group-hover:text-custom-600 transition-transform transform group-hover:scale-110"
-          />
-          <span class="text-sm text-gray-400 group-hover:text-custom-600 transition">
-            Games
-          </span>
-        </a>
-        <a
-          href="/about"
-          class="flex flex-col items-center justify-center space-y-1 group"
-        >
-          <UIcon
-            name="i-heroicons-information-circle"
-            class="w-6 h-6 text-gray-400 group-hover:text-custom-600 transition-transform transform group-hover:scale-110"
-          />
-          <span class="text-sm text-gray-400 group-hover:text-custom-600 transition">
-            About
-          </span>
-        </a>
-      </nav>
-
-      <!-- 移动菜单按钮 -->
-      <button @click="toggleMenu" class="md:hidden focus:outline-none">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="h-6 w-6"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M4 6h16M4 12h16m-7 6h7"
-          />
-        </svg>
-      </button>
-    </div>
-
-    <!-- 移动菜单 -->
-    <div v-if="isMenuOpen" class="md:hidden bg-gray-700">
-      <nav class="flex flex-col space-y-2 p-4">
-        <a href="/" class="text-white hover:text-custom-400">Home</a>
-        <a href="/games" class="text-white hover:text-custom-400">Games</a>
-        <a href="/about" class="text-white hover:text-custom-400">About</a>
-      </nav>
-
-      <!-- 移动端搜索框 -->
-      <div class="mt-4 px-4 py-4">
-        <div
-          class="bg-gray-800 bg-opacity-60 rounded-lg overflow-hidden flex border-2 border-custom-500/80 focus-within:border-custom-600/90 transition"
-        >
-          <!-- 移动端的下拉框 -->
-          <select
-            v-model="searchType"
-            class="px-4 py-2 text-sm text-white bg-transparent border-none focus:outline-none w-24 sm:w-32 md:w-40 border-r-2 border-custom-400/70"
-          >
-            <option value="title">Title</option>
-            <option value="category">Category</option>
-            <option value="tags">Tags</option>
-          </select>
-
-          <!-- 移动端搜索框输入 -->
-          <input
-            v-model="searchContent"
-            type="text"
-            placeholder="Search..."
-            class="px-4 py-2 text-sm text-white bg-transparent border-none focus:outline-none w-full border-r-2 border-custom-400/70"
-          />
-
-          <!-- 移动端搜索按钮 -->
-          <button
-            @click="searchClick"
-            class="px-4 py-2 text-white bg-custom-500 hover:bg-custom-600 focus:outline-none transition"
-          >
-            Search
-          </button>
-        </div>
+      <!-- 右侧头像 -->
+      <div class="flex items-center space-x-4">
+        <img
+          src="https://avatars.githubusercontent.com/u/739984?v=4"
+          alt="User Avatar"
+          class="w-12 h-12 rounded-full border-2 border-gray-700"
+        />
       </div>
     </div>
   </header>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref } from "vue";
-import { useRouter } from "vue-router";
-import { searchContent, searchType } from "~/common/search";
-import { searchTypeEventBus, searchClickEventBus } from "@/common/eventBus";
 
-// 控制移动菜单的状态
-const isMenuOpen = ref(false);
+const ui = {
+  padding: "p-2",
+  item: {
+    padding: "p-2",
+  },
+};
 
-const router = useRouter();
-
-function toggleMenu() {
-  isMenuOpen.value = !isMenuOpen.value;
-}
-
-// 处理搜索逻辑
-function searchClick() {
-  router.push({ path: "/search" });
-  searchClickEventBus.emit(searchContent.value);
-}
-
-function searchTypeChange() {
-  searchTypeEventBus.emit(searchType.value);
-}
+// 菜单项数据结构
+const items = [
+  [
+    {
+      label: "Dashboard",
+      to: "/dash",
+    },
+    {
+      label: "Profile",
+      to: "/profile",
+    },
+  ],
+  [
+    {
+      label: "Design",
+      to: "/services/design",
+    },
+    {
+      label: "Consulting",
+      to: "/services/consulting",
+    },
+  ],
+  [
+    {
+      label: "Company",
+      to: "/about/company",
+    },
+    {
+      label: "Team",
+      to: "/about/team",
+    },
+  ],
+];
 </script>
+
+<style>
+/* 你可以根据需要添加样式 */
+.home-nav a {
+  font-weight: bold !important;
+  font-size: 12px !important;
+  color: #555;
+}
+</style>

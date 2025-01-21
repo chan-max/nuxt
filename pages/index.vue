@@ -1,136 +1,105 @@
 <template>
-  <div>
-    <div class="w-full p-6 bg-custom-400 shadow-md">
-      <div class="flex flex-wrap justify-center gap-2">
-        <span
-          v-for="(category, index) in categoriesData"
-          :key="index"
-          @click="categoryClick(category as string)"
-          class="text-xs md:text-base font-medium text-white underline hover:text-custom-900 focus:text-custom-dark focus:underline transition-all duration-300 cursor-pointer"
-        >
-          {{ category }}
-        </span>
-      </div>
-    </div>
+  <div class="flex flex-col items-center justify-start min-h-screen py-8 gap-6">
+    <!-- 页面标题 -->
+    <h1 class="title">Configuration</h1>
 
-    <div class="sm:my-12" v-if="carouselData.length">
-      <Carousel :slides="carouselData" @playnow="playnow" @contentClick="contentClick" />
-    </div>
+    <!-- 页面描述 -->
+    <p class="description">Please configure the settings as per your requirements.</p>
 
-    <div class="sm:my-12" v-if="categorieMapData.length">
-      <GameListCard
-        v-for="item in categorieMapData"
-        :title="item.title"
-        :games="item.data.games"
-        @playnow="cardPlaynow"
-        @thumbClick="gameListThumbClick"
-      ></GameListCard>
+    <!-- 外层容器，带有半透明的淡粉色边框 -->
+    <div class="input-container">
+      <!-- 输入框 -->
+      <input
+        v-model="configStore.config"
+        type="text"
+        placeholder="Enter configuration"
+        class="input-field"
+      />
+
+      <!-- 提交按钮 -->
+      <button @click="handleSubmit" class="submit-btn">Submit</button>
     </div>
   </div>
 </template>
 
-<script lang="ts" setup>
-import API from "@/common/api";
-import { useGameModal } from "@/common/useGameModal";
-import { searchContent, searchType, SearchTypes } from "~/common/search";
-import { useLoading } from "~/common/useLoading";
+<script setup lang="ts">
+import { useConfigStore } from "~/common/store";
 
-let router = useRouter();
+// 获取 config 仓库
+const configStore = useConfigStore();
 
-/**
- * @method 点击导航栏下方的分类
- */
-function categoryClick(category) {
-  searchType.value = SearchTypes.Category;
-  searchContent.value = category as string;
-  router.push("/search");
-}
-
-let { startLoading, stopLoading } = useLoading();
-
-let { data: categoriesData, pending: categoriesPending } = API.getCategories();
-
-let { data: randomGames, pending: randomGamesPending } = API.getRandomGames({ count: 5 });
-
-let carouselData = computed(() => {
-  if (!randomGames.value) {
-    return [];
-  }
-  return (randomGames.value as Array<any>).map((item) => {
-    return item;
-  });
-});
-
-const { openGameModal } = useGameModal();
-
-/**
- * @method 轮播图点击playnow
- */
-function playnow(item: { url: string }) {
-  openGameModal(item);
-}
-
-/**
- * @method 跳转到游戏详情页面
- */
-function goDetailPage(info: { id: string }) {
-  // router.push({path:`detail/${info.id}`,force:true});
-  navigateTo(`/detail/${info.id}`);
-}
-
-/**
- * @method 游戏卡片点击playnow
- */
-function cardPlaynow(item: { url: string }) {
-  openGameModal(item);
-}
-
-/**
- * @method 点击轮播图图片，进入详情
- */
-function contentClick(item: any) {
-  goDetailPage(item);
-}
-
-/**
- * @method 游戏列表中的缩略图点击，用于跳转详情
- */
-function gameListThumbClick(item: any) {
-  goDetailPage(item);
-}
-
-/**
- * @struct 首页热搜游戏数据结构
- * */
-const categorieMapData = ref([] as Array<any>);
-
-onMounted(async () => {
-  try {
-    // 获取分类
-
-    startLoading();
-
-    const { data: categoryData } = await API.getTopCategories();
-
-    await Promise.all(
-      (categoryData.value as Array<string>).map(async (category) => {
-        const { data: searchData } = await API.searchGames({
-          category: category,
-          page: 1,
-          pageSize: 8,
-        });
-        categorieMapData.value.push({
-          title: category,
-          data: searchData.value,
-        });
-      })
-    );
-
-    // console.log(JSON.parse(JSON.stringify(categorieMapData.value)));
-  } catch (error) {
-    console.error("请求错误", error);
-  } finally {
-    stopLoading();
-  }
-});
+// 提交处理函数
+const handleSubmit = () => {
+  // 提交逻辑可以放这里
+  console.log("Configuration submitted:", configStore.config);
+};
 </script>
+
+<style scoped>
+/* 设置标题和描述的样式 */
+h1 {
+  font-size: 6rem;
+  font-weight: bold;
+  color: #333;
+}
+
+p {
+  font-size: 1.25rem;
+  color: #999;
+  max-width: 600px;
+  text-align: center;
+}
+
+/* 外层容器，带有半透明的淡粉色边框 */
+.input-container {
+  display: flex;
+  align-items: center;
+  gap: 6px; /* 输入框和按钮之间的间距 */
+  max-width: 720px; /* 增加容器的最大宽度，原来的 500px 增加 1.5 倍 */
+  width: 100%;
+  height: 72px; /* 增加容器的高度 */
+  border: 4px solid rgba(234, 100, 217, 0.3); /* 半透明淡粉色边框 */
+  border-radius: 999px; /* 最大圆角效果 */
+  overflow: hidden; /* 确保输入框和按钮保持圆角 */
+  padding: 4px 12px; /* 外部容器内边距 */
+}
+
+/* 输入框样式 */
+.input-field {
+  flex: 1; /* 使输入框占满容器 */
+  padding: 16px 24px; /* 增加内边距 */
+  font-size: 1.125rem; /* 增大字体 */
+  border: none; /* 去除输入框的默认边框 */
+  outline: none; /* 去除输入框的默认聚焦边框 */
+  border-radius: 999px 0 0 999px; /* 左侧最大圆角 */
+  background-color: #fff; /* 设置背景为白色 */
+  color: #333; /* 设置字体颜色 */
+  transition: box-shadow 0.3s; /* 输入框的过渡效果 */
+}
+
+/* 按钮样式 */
+.submit-btn {
+  padding: 12px 16px; /* 按钮的内边距（比原来小） */
+  font-size: 1rem; /* 按钮的字体大小更小 */
+  background-color: #f06292; /* 设置按钮背景颜色为粉色 */
+  color: white; /* 设置按钮文字颜色 */
+  border: none; /* 去除默认边框 */
+  border-radius: 999px; /* 右侧最大圆角 */
+  cursor: pointer; /* 鼠标悬浮时变成指针 */
+  transition: background-color 0.3s; /* 按钮的过渡效果 */
+}
+
+/* 按钮悬停效果 */
+.submit-btn:hover {
+  background-color: #ec407a; /* 鼠标悬停时按钮颜色变暗 */
+}
+
+/* 输入框聚焦时的效果 */
+.input-field:focus {
+}
+
+/* 按钮聚焦时的效果 */
+.submit-btn:focus {
+  outline: none; /* 去掉默认聚焦边框 */
+}
+</style>

@@ -20,12 +20,8 @@ export default defineNuxtConfig({
       },
       link: [
         { rel: 'icon', type: 'image/x-icon', href: gameConfig.favicon },
-        { rel: 'preconnect', href: 'https://securepubads.g.doubleclick.net' },
-        { rel: 'dns-prefetch', href: 'https://securepubads.g.doubleclick.net' },
-        { rel: 'preload', href: 'https://www.googletagservices.com/tag/js/gpt.js', as: 'script' }
       ],
       script: [
-        { src: 'https://securepubads.g.doubleclick.net/tag/js/gpt.js', async: false, defer: false },
       ]
     }
   },
@@ -44,7 +40,8 @@ export default defineNuxtConfig({
     '@nuxtjs/sitemap',
     "@nuxt/image",
     '@zadigetvoltaire/nuxt-gtm',
-    "@stefanobartoletti/nuxt-social-share"
+    "@stefanobartoletti/nuxt-social-share",
+    '@pinia/nuxt',
   ],
   gtm: {
     id: gameConfig.gtmID,
